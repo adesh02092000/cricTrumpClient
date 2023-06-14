@@ -7,6 +7,7 @@ body {
     background: linear-gradient(90deg, $card-gradient-1 0%, $card-gradient-2 100%);
     color: $card-text-color;
     font-size: 1.7rem;
+    cursor: pointer;
 
     border-radius: 1rem;
     padding: 2rem 3rem;
