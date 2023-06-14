@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Aldrich&family=Bad+Script&display=swap');
+
+$body-gradient-1: hsla(154, 100%, 76%, 1);
+$body-gradient-2 : hsla(234, 100%, 83%, 1);
+$body-gradient-3 : hsla(288, 100%, 81%, 1);
+
+$card-gradient-1: hsla(152, 100%, 72%, 1);
+$card-gradient-2: hsla(204, 100%, 75%, 1);
+$card-drop: hsl(222, 43%, 51%);
+$card-text-color : hsl(0, 0%, 25%);
+
+$data-block-background: rgba(7, 7, 7, 0.2);
+
+$value-btn-background: hsl(58, 100%, 90%);
+$value-btn-color: hsl(58, 50%, 50%);
+$value-btn-hover: hsla(58, 70%, 50%);
+$value-btn-focus: hsla(58, 100%, 40%);
+
+$correct-text: hsl(117, 100%, 50%);
+$correct-background: hsl(116, 100%, 94%);
+
+$wrong-text: hsl(0, 100%, 46%);
+$wrong-background: hsl(0, 100%, 94%);
+
+*, *:before, *:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%; // Setting 1rem = 10px, instead of 16px; (10px/16px) = 62.5%
+
+    @media screen and (max-width: 600px){
+        font-size: 55%;
+    }
+    
+    @media screen and (max-width: 450px){
+        font-size: 50%;
+    }
+
+    font-family: 'Aldrich', sans-serif;
+}
+
