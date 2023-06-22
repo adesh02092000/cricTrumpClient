@@ -12,7 +12,9 @@ body {
     border-radius: 1rem;
     padding: 2rem 3rem;
     filter: drop-shadow(0 0 2em rgba($card-drop, .2));
-
+    -webkit-tap-highlight-color: transparent;
+    // -webkit-touch-callout: none;
+      
     & > * {
         align-self: center;
         justify-self: center;
