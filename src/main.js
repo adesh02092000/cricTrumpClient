@@ -189,23 +189,77 @@ cardsElement.forEach(card => {
     if (!jsCard.isFlippable || e.target.matches('[data-user-player]')) return
     // console.log(card.dataset.id)
 
-    const flipTimeline = gsap.timeline()
-    flipTimeline
-      .set(card, {
-        x: 0,
-      })
-      .to(card, {
-        x: () => {
-          if (Math.random() > 0.5) return '150%'
-          return '-150%'
-        },
-      })
-      .set(card, {
-        zIndex: zCounterClick--,
-      })
-      .to(card, {
-        x: 0,
-      })
+    // const flipTimeline = gsap.timeline()
+    // flipTimeline
+    //   .set(card, {
+    //     x: 0,
+    //   })
+    //   .to(card, {
+    //     x: () => {
+    //       if (Math.random() > 0.5) return '150%'
+    //       return '-150%'
+    //     },
+    //   })
+    //   .set(card, {
+    //     zIndex: zCounterClick--,
+    //   })
+    //   .to(card, {
+    //     x: 0,
+    //   })
+
+    const mediaQueryString = '(max-width: 600px)'
+    const mediaQueryList = window.matchMedia(mediaQueryString)
+
+    function updateFlipTiming(e) {
+      if (e.matches) {
+        const flipTimeline = gsap.timeline()
+        flipTimeline
+          .set(card, {
+            x: 0,
+          })
+          .to(card, {
+            x: () => {
+              if (Math.random() > 0.5) return '150%'
+              return '-150%'
+            },
+          })
+          .set(card, {
+            zIndex: zCounterClick--,
+          })
+          .to(card, {
+            x: 0,
+          })
+          .duration(0.4)
+      } else {
+        const flipTimeline = gsap.timeline()
+        flipTimeline
+          .set(card, {
+            x: 0,
+          })
+          .to(card, {
+            x: () => {
+              if (Math.random() > 0.5) return '150%'
+              return '-150%'
+            },
+          })
+          .set(card, {
+            zIndex: zCounterClick--,
+          })
+          .to(card, {
+            x: 0,
+          })
+      }
+    }
+
+    // Initial check
+    updateFlipTiming(mediaQueryList)
+
+    // Register event listener
+    if (mediaQueryList.addEventListener) {
+      mediaQueryList.addEventListener('change', updateFlipTiming)
+    } else {
+      mediaQueryList.addEventListener(updateFlipTiming)
+    }
 
     if (jsCard.index === 5) {
       circle?.classList.add('rotation')
